@@ -31,8 +31,7 @@ text
 EOF
 
 # Set up role ARN
-# echo '[profile s3-copy-action]' >> ~/.aws/config
-cat ~/.aws/config
+echo 'source_profile = s3-copy-action' >> ~/.aws/config
 echo 'role_arn = arn:aws:iam::139001315071:role/cross_account_analytics' >> ~/.aws/config
 
 # Copy all files from a folder in a given S3 bucket
