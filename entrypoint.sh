@@ -23,11 +23,6 @@ if [ -z "$AWS_REGION" ]; then
   AWS_REGION="us-east-1"
 fi
 
-# Override default AWS endpoint if user sets AWS_S3_ENDPOINT.
-if [ -n "$AWS_S3_ENDPOINT" ]; then
-  ENDPOINT_APPEND="--endpoint-url $AWS_S3_ENDPOINT"
-fi
-
 # Create a dedicated profile for this action
 aws configure --profile s3-copy-action <<-EOF > /dev/null 2>&1
 ${AWS_ACCESS_KEY_ID}
@@ -39,8 +34,7 @@ EOF
 # Copy all files from a folder in a given S3 bucket
 sh -c "aws s3 cp s3://${AWS_S3_BUCKET}/${AWS_S3_DIR} . --recursive \
               --profile s3-copy-action \
-              --no-progress \
-              ${ENDPOINT_APPEND} $*"
+              --no-progress"
 
 # Clear out credentials
 aws configure --profile s3-copy-action <<-EOF > /dev/null 2>&1
