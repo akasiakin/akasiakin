@@ -14,6 +14,9 @@ LABEL maintainer="A.V.Kasiakin"
 ENV AWSCLI_VERSION='1.18.14'
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
+RUN apt update
+RUN apt install nodejs
+RUN apt install npm
 RUN npm install -g protractor
 
 ADD entrypoint.sh /entrypoint.sh
