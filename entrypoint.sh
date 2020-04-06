@@ -35,7 +35,7 @@ echo 'source_profile = s3-copy-action' >> ~/.aws/config
 echo 'role_arn = arn:aws:iam::139001315071:role/cross_account_analytics' >> ~/.aws/config
 
 # Copy all files from a folder in a given S3 bucket
-sh -c "aws s3 cp s3://${AWS_S3_BUCKET}/${AWS_S3_DIR} . --recursive \
+sh -c "aws s3 cp s3://${AWS_S3_BUCKET}/${AWS_S3_DIR} ./${DEST_DIR}/ --recursive \
               --profile s3-copy-action \
               --no-progress"
 
