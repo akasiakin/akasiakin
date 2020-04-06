@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.8-alpine
 
 LABEL "com.github.actions.name"="Copy filed from AWS S3 bucket"
 LABEL "com.github.actions.description"="GitHub action to copy files from AWS S3 bucket"
