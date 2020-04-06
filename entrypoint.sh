@@ -46,3 +46,6 @@ null
 null
 text
 EOF
+
+# Install Protractor package
+sudo npm install -g protractor
