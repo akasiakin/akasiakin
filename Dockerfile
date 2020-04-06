@@ -14,6 +14,8 @@ LABEL maintainer="A.V.Kasiakin"
 ENV AWSCLI_VERSION='1.18.14'
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
+RUN lsb_release -a
+RUN cat /etc/os-release
 RUN sudo apt-get update
 RUN sudo apt-get install nodejs
 RUN sudo apt-get install npm
